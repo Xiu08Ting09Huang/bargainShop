@@ -1,44 +1,45 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/login/login'
-import Main from '@/components/main/main'
-import Home from '@/components/home/home'
-import Goods from 'base/goods/goods'
-import UserList from '@/components/userlist/userlist'
-import userEdit from 'base/userEdit/userEdit'
+// import HelloWorld from '@/components/HelloWorld'
+import Home from '@/components/tabbar/home'
+import OrderList from '@/components/tabbar/orderList'
+import GoodsList from '@/components/tabbar/goodsList'
+import SuccessCode from '@/components/code/successCode'
+import FailCode from '@/components/code/failCode'
+import Confirm from '@/components/code/confirm'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect:'/shop/home'
     },
     {
-      path: '/login',
-      component: Login
+      path: '/shop/home',
+      component: Home
+    },
+   
+    {
+      path:'/shop/orderList',
+      component: OrderList
     },
     {
-      path: '/main',
-      component: Main,
-      children: [
-        {
-          path: 'home',
-          component: Home
-        },
-        {
-          path: 'goods',
-          component: Goods
-        },
-        {
-          path: 'userlist',
-          component: UserList
-        },
-        {
-          path: 'userlist/edit/:id',
-          component: userEdit
-        }
-      ]
+      path:'/shop/goodsList',
+      component:GoodsList
+    },
+    {
+      path:'/shop/successCode',
+      component:SuccessCode
+    },
+    {
+      path:'/shop/failCode/:code',
+      component:FailCode
+    },
+    {
+      path:'/shop/confirm',
+      component:Confirm
     }
-  ]
-})
+  ],
+ 
+})  
